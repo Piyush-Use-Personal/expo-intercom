@@ -19,7 +19,12 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.VIBRATE"
+      ],
+      "package": "com.piyush.use.frntlne.intercomtest"
     },
     "web": {
       "bundler": "metro",
@@ -27,10 +32,35 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "15.0"
+          }
+        }
+      ],
+      [
+        "@intercom/intercom-react-native",
+        {
+          "appId": "appId",
+          "androidApiKey": "android_sdk-key",
+          "iosApiKey": "ios_sdk-key",
+          "intercomRegion": "AU"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "319509b7-f04c-44f5-90ae-52be5bc255bb"
+      }
     }
   }
 }
